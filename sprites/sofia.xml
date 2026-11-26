@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="animal challeng.png">
+	<!-- Created with Adobe Animate version 24.0.2.12 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Sofía instancia 10000" x="785" y="0" width="388" height="339" frameX="-5" frameY="0" frameWidth="393" frameHeight="339"/>
+	<SubTexture name="Sofía instancia 10001" x="393" y="339" width="390" height="339" frameX="-3" frameY="0" frameWidth="393" frameHeight="339"/>
+	<SubTexture name="Sofía instancia 10002" x="0" y="678" width="392" height="339" frameX="-1" frameY="0" frameWidth="393" frameHeight="339"/>
+	<SubTexture name="Sofía instancia 10003" x="0" y="0" width="393" height="339"/>
+	<SubTexture name="Sofía instancia 10004" x="1172" y="339" width="387" height="339" frameX="-6" frameY="0" frameWidth="393" frameHeight="339"/>
+	<SubTexture name="Sofía instancia 10005" x="1558" y="0" width="372" height="339" frameX="-21" frameY="0" frameWidth="393" frameHeight="339"/>
+	<SubTexture name="Sofía instancia 10006" x="1172" y="678" width="372" height="339" frameX="-21" frameY="0" frameWidth="393" frameHeight="339"/>
+	<SubTexture name="Sofía instancia 10007" x="1544" y="678" width="372" height="339" frameX="-21" frameY="0" frameWidth="393" frameHeight="339"/>
+	<SubTexture name="Sofía instancia 10008" x="1559" y="339" width="372" height="339" frameX="-21" frameY="0" frameWidth="393" frameHeight="339"/>
+	<SubTexture name="Sofía instancia 10009" x="0" y="1017" width="372" height="339" frameX="-21" frameY="0" frameWidth="393" frameHeight="339"/>
+	<SubTexture name="Sofía instancia 10010" x="372" y="1017" width="372" height="339" frameX="-21" frameY="0" frameWidth="393" frameHeight="339"/>
+	<SubTexture name="Sofía instancia 10011" x="744" y="1017" width="372" height="339" frameX="-21" frameY="0" frameWidth="393" frameHeight="339"/>
+	<SubTexture name="Sofía instancia 10012" x="1116" y="1017" width="372" height="339" frameX="-21" frameY="0" frameWidth="393" frameHeight="339"/>
+	<SubTexture name="Sofía instancia 10013" x="1488" y="1017" width="372" height="339" frameX="-21" frameY="0" frameWidth="393" frameHeight="339"/>
+	<SubTexture name="Sofía instancia 10014" x="0" y="1356" width="372" height="339" frameX="-21" frameY="0" frameWidth="393" frameHeight="339"/>
+	<SubTexture name="Sofía instancia 10015" x="372" y="1356" width="372" height="339" frameX="-21" frameY="0" frameWidth="393" frameHeight="339"/>
+	<SubTexture name="Sofía instancia 10016" x="744" y="1356" width="372" height="339" frameX="-21" frameY="0" frameWidth="393" frameHeight="339"/>
+	<SubTexture name="Sofía instancia 10017" x="1116" y="1356" width="372" height="339" frameX="-21" frameY="0" frameWidth="393" frameHeight="339"/>
+	<SubTexture name="Sofía instancia 10018" x="1488" y="1356" width="372" height="339" frameX="-21" frameY="0" frameWidth="393" frameHeight="339"/>
+	<SubTexture name="Sofía instancia 10019" x="1173" y="0" width="385" height="339" frameX="-8" frameY="0" frameWidth="393" frameHeight="339"/>
+	<SubTexture name="Sofía instancia 10020" x="392" y="678" width="392" height="339" frameX="-1" frameY="0" frameWidth="393" frameHeight="339"/>
+	<SubTexture name="Sofía instancia 10021" x="0" y="339" width="393" height="339"/>
+	<SubTexture name="Sofía instancia 10022" x="393" y="0" width="392" height="339" frameX="-1" frameY="0" frameWidth="393" frameHeight="339"/>
+	<SubTexture name="Sofía instancia 10023" x="783" y="339" width="389" height="339" frameX="-4" frameY="0" frameWidth="393" frameHeight="339"/>
+	<SubTexture name="Sofía instancia 10024" x="784" y="678" width="388" height="339" frameX="-5" frameY="0" frameWidth="393" frameHeight="339"/>
+</TextureAtlas>

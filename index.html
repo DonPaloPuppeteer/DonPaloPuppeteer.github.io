@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DonPalo Projects</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,sans-serif;color:#2b1d12;min-height:100vh;padding-bottom:190px;overflow-x:hidden;
+background:linear-gradient(#8ecff5,#dff4ff 55%,#a6e07f 55%,#6fbf5a)}
+.cloud{position:absolute;height:50px;background:#fff;border-radius:50px;animation:drift 80s linear infinite}
+@keyframes drift{from{transform:translateX(-250px)}to{transform:translateX(110vw)}}
+header{text-align:center;padding:70px 20px 10px;position:relative}
+h1{font-size:3rem;margin:0;text-shadow:3px 3px #fff}
+section{position:relative;max-width:900px;margin:30px auto;padding:24px;background:rgba(255,255,255,.9);border:4px solid #5a3a1e;border-radius:18px;box-shadow:0 6px 0 #5a3a1e}
+h2{margin-top:0}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.card{background:#fff8e7;border:3px solid #5a3a1e;border-radius:12px;padding:14px}
+.btn{display:inline-block;margin:6px 6px 0 0;padding:6px 12px;background:#e9833b;color:#fff;border-radius:8px;text-decoration:none;font-weight:bold}
+canvas#game{display:block;margin:auto;max-width:100%;border-radius:10px;cursor:pointer}
+#walk{position:fixed;left:0;bottom:0;width:100%;height:170px;pointer-events:none}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+
+<header>
+  <h1 id="titulo"></h1>
+  <p id="subtitulo"></p>
+</header>
+
+<section>
+  <h2>📺 YouTube</h2>
+  <div id="youtube"></div>
+</section>
+
+<section>
+  <h2>🎮 Proyectos</h2>
+  <div class="cards" id="proyectos"></div>
+</section>
+
+<section id="juegoSec" hidden>
+  <h2 id="juegoTitulo"></h2>
+  <p>Espacio o clic para saltar.</p>
+  <canvas id="game" width="800" height="240"></canvas>
+</section>
+
+<canvas id="walk"></canvas>
+
+<script>
+const $ = id => document.getElementById(id);
+
+// Carga un atlas Sparrow (XML) y su imagen
+async function cargarPersonaje(p) {
+  const xml = await (await fetch(p.atlas)).text();
+  const doc = new DOMParser().parseFromString(xml, 'text/xml');
+  const frames = [...doc.querySelectorAll('SubTexture')].map(s => ({
+    x:+s.getAttribute('x'), y:+s.getAttribute('y'),
+    w:+s.getAttribute('width'), h:+s.getAttribute('height'),
+    fx:+s.getAttribute('frameX'), fy:+s.getAttribute('frameY')
+  }));
+  const img = new Image();
+  img.src = p.imagen;
+  await img.decode();
+  return {frames, img};
+}
+
+// Dibuja un frame con el ancla en los pies (x, y)
+function drawKapi(ctx, pj, f, x, y, s, flip) {
+  const fr = pj.frames[f % pj.frames.length];
+  const dx = (-fr.fx - 120) * s, dy = (-fr.fy - 386) * s;
+  ctx.save();
+  ctx.translate(x, y);
+  if (flip) ctx.scale(-1, 1);
+  ctx.drawImage(pj.img, fr.x, fr.y, fr.w, fr.h, dx, dy, fr.w * s, fr.h * s);
+  ctx.restore();
+}
+
+async function main() {
+  const D = await (await fetch('data.json')).json();
+
+  // Textos
+  document.title = D.titulo;
+  $('titulo').textContent = D.titulo;
+  $('subtitulo').textContent = D.subtitulo;
+  $('youtube').innerHTML = `<a class="btn" href="${D.youtube.url}" target="_blank">${D.youtube.texto}</a>`;
+  $('proyectos').innerHTML = D.proyectos.map(p =>
+    `<div class="card"><h3>${p.nombre}</h3><p>${p.desc}</p>
+     ${p.links.map(l => `<a class="btn" href="${l.url}" target="_blank">${l.texto}</a>`).join('')}</div>`
+  ).join('');
+
+  // Nubes
+  for (let i = 0; i < 4; i++) {
+    const c = document.createElement('div');
+    c.className = 'cloud';
+    c.style.top = (30 + Math.random() * 150) + 'px';
+    c.style.width = (80 + Math.random() * 100) + 'px';
+    c.style.animationDelay = (-Math.random() * 80) + 's';
+    document.body.appendChild(c);
+  }
+
+  // Personajes
+  const PJ = {};
+  for (const p of D.personajes) PJ[p.id] = await cargarPersonaje(p);
+
+  // Caminantes del footer
+  const walk = $('walk'), wc = walk.getContext('2d');
+  const resize = () => { walk.width = innerWidth; walk.height = 170; };
+  addEventListener('resize', resize); resize();
+  const W = D.caminantes.filter(c => PJ[c.personaje]).map(c => ({
+    ...c, pj: PJ[c.personaje], x: Math.random() * innerWidth, f: Math.random() * 24
+  }));
+  (function walkTick() {
+    wc.clearRect(0, 0, walk.width, walk.height);
+    for (const w of W) {
+      w.x += w.v; w.f += .5;
+      if (w.x > walk.width + 150) w.x = -150;
+      if (w.x < -150) w.x = walk.width + 150;
+      drawKapi(wc, w.pj, Math.floor(w.f), w.x, walk.height - 10, w.s, w.v < 0);
+    }
+    requestAnimationFrame(walkTick);
+  })();
+
+  // Minijuego
+  if (D.minijuego && PJ[D.minijuego.personaje]) {
+    $('juegoSec').hidden = false;
+    $('juegoTitulo').textContent = '🕹️ ' + D.minijuego.titulo;
+    startGame(PJ[D.minijuego.personaje]);
+  }
+}
+
+function startGame(pj) {
+  const cv = $('game'), g = cv.getContext('2d');
+  const GROUND = 200, PS = .25;
+  let py = 0, vy = 0, obs = [], t = 0, over = true, speed = 5, pf = 0;
+  const reset = () => { py = 0; vy = 0; obs = []; t = 0; speed = 5; over = false; };
+  const jump = () => { if (over) return reset(); if (py === 0) vy = -12; };
+  addEventListener('keydown', e => { if (e.code === 'Space') { e.preventDefault(); jump(); } });
+  cv.addEventListener('click', jump);
+
+  (function gameTick() {
+    g.fillStyle = '#cfefff'; g.fillRect(0, 0, 800, 240);
+    g.fillStyle = '#6fbf5a'; g.fillRect(0, GROUND, 800, 40);
+    if (!over) {
+      t++; speed = 5 + t / 600;
+      vy += .6; py += vy; if (py > 0) { py = 0; vy = 0; }
+      if (py === 0) pf += .3;
+      if (t % 90 === 0) obs.push({x: 820, w: 20 + Math.random() * 25, h: 30 + Math.random() * 30});
+      obs.forEach(o => o.x -= speed);
+      obs = obs.filter(o => o.x > -60);
+      for (const o of obs) if (o.x < 130 && o.x + o.w > 90 && py > -o.h) over = true;
+    }
+    g.fillStyle = '#5a3a1e';
+    for (const o of obs) g.fillRect(o.x, GROUND - o.h, o.w, o.h);
+    drawKapi(g, pj, Math.floor(pf), 110, GROUND + py, PS, false);
+    g.fillStyle = '#2b1d12'; g.font = '20px system-ui';
+    g.fillText('Puntos: ' + Math.floor(t / 6), 20, 30);
+    if (over) { g.font = 'bold 24px system-ui'; g.fillText('Espacio o clic para empezar', 230, 110); }
+    requestAnimationFrame(gameTick);
+  })();
+}
+
+main();
+</script>
+</body>
+</html>

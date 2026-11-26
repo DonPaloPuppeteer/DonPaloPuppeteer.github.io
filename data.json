@@ -1,0 +1,103 @@
+
+{
+  "titulo": "hola cabros soy Palo xdlol",
+  "subtitulo": "Hago de todo",
+
+  "youtube": {
+    "url": "https://www.youtube.com/@pupeeterdechile",
+    "texto": "Mira mis videos we"
+  },
+
+  "personajes": [
+    {
+      "id": "kapi",
+      "atlas": "sprites/kapiwalk.xml",
+      "imagen": "sprites/kapiwalk.png"
+    },
+    {
+      "id": "sofia",
+      "atlas": "sprites/sofia.xml",
+      "imagen": "sprites/sofia.png"
+    }
+  ],
+
+  "caminantes": [
+    {
+      "personaje": "kapi",
+      "s": 0.45,
+      "v": 1.1
+    },
+    {
+      "personaje": "sofia",
+      "s": 0.20,
+      "v": 0.5
+    }
+  ],
+
+  "proyectos": [
+    {
+      "nombre": "lataM Engine",
+      "desc": "Engine con sintaxis en español, basado en LÖVE",
+      "links": [
+        {
+          "texto": "itch.io",
+          "url": "https://donpalop.itch.io/latam"
+        }
+      ]
+    },
+    {
+      "nombre": "PicoWii Emulator",
+      "desc": "Proyecto de emulación PicoWii",
+      "links": [
+        {
+          "texto": "itch.io",
+          "url": "https://donpalop.itch.io/picowii-emu"
+        }
+      ]
+    },
+    {
+      "nombre": "We Love Wii",
+      "desc": "Proyecto relacionado con Wii",
+      "links": [
+        {
+          "texto": "itch.io",
+          "url": "https://donpalop.itch.io/we-love-wii"
+        }
+      ]
+    },
+    {
+      "nombre": "RitmoAndante",
+      "desc": "Proyecto de animación y ritmo",
+      "links": [
+        {
+          "texto": "itch.io",
+          "url": "https://donpalop.itch.io/ritmoandante"
+        }
+      ]
+    },
+    {
+      "nombre": "Playing",
+      "desc": "Proyecto de videojuego",
+      "links": [
+        {
+          "texto": "itch.io",
+          "url": "https://donpalop.itch.io/playing"
+        }
+      ]
+    },
+    {
+      "nombre": "MiiViewer",
+      "desc": "Visor de personajes Mii",
+      "links": [
+        {
+          "texto": "GitHub",
+          "url": "https://github.com/DonPaloPuppeteer/MiiViewer"
+        },
+        {
+          "texto": "Descargar ZIP",
+          "url": "https://github.com/DonPaloPuppeteer/MiiViewer/releases/download/realese/miiviewer.zip"
+        }
+      ]
+    }
+  ]
+}

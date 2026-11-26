@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="kapiwalk.png">
+	<!-- Created with Adobe Animate version 24.0.2.12 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="kapi0000" x="822" y="755" width="193" height="377" frameX="-39" frameY="0" frameWidth="240" frameHeight="386"/>
+	<SubTexture name="kapi0001" x="647" y="377" width="193" height="378" frameX="-39" frameY="0" frameWidth="240" frameHeight="386"/>
+	<SubTexture name="kapi0002" x="629" y="755" width="193" height="383" frameX="-39" frameY="0" frameWidth="240" frameHeight="386"/>
+	<SubTexture name="kapi0003" x="819" y="1523" width="193" height="386" frameX="-39" frameY="0" frameWidth="240" frameHeight="386"/>
+	<SubTexture name="kapi0004" x="625" y="1523" width="194" height="385" frameX="-38" frameY="0" frameWidth="240" frameHeight="386"/>
+	<SubTexture name="kapi0005" x="625" y="1139" width="198" height="384" frameX="-34" frameY="0" frameWidth="240" frameHeight="386"/>
+	<SubTexture name="kapi0006" x="423" y="1139" width="202" height="382" frameX="-30" frameY="0" frameWidth="240" frameHeight="386"/>
+	<SubTexture name="kapi0007" x="441" y="376" width="206" height="379" frameX="-26" frameY="0" frameWidth="240" frameHeight="386"/>
+	<SubTexture name="kapi0008" x="213" y="1138" width="210" height="377" frameX="-22" frameY="0" frameWidth="240" frameHeight="386"/>
+	<SubTexture name="kapi0009" x="210" y="1524" width="213" height="375" frameX="-19" frameY="0" frameWidth="240" frameHeight="386"/>
+	<SubTexture name="kapi0010" x="232" y="0" width="216" height="376" frameX="-16" frameY="0" frameWidth="240" frameHeight="386"/>
+	<SubTexture name="kapi0011" x="0" y="761" width="225" height="377" frameX="-15" frameY="0" frameWidth="240" frameHeight="386"/>
+	<SubTexture name="kapi0012" x="222" y="378" width="219" height="377" frameX="-14" frameY="0" frameWidth="240" frameHeight="386"/>
+	<SubTexture name="kapi0013" x="0" y="0" width="232" height="378" frameX="0" frameY="0" frameWidth="240" frameHeight="386"/>
+	<SubTexture name="kapi0014" x="0" y="378" width="222" height="383" frameX="-10" frameY="0" frameWidth="240" frameHeight="386"/>
+	<SubTexture name="kapi0015" x="0" y="1138" width="213" height="386" frameX="-19" frameY="0" frameWidth="240" frameHeight="386"/>
+	<SubTexture name="kapi0016" x="0" y="1524" width="210" height="385" frameX="-22" frameY="0" frameWidth="240" frameHeight="386"/>
+	<SubTexture name="kapi0017" x="423" y="755" width="206" height="384" frameX="-26" frameY="0" frameWidth="240" frameHeight="386"/>
+	<SubTexture name="kapi0018" x="423" y="1521" width="202" height="382" frameX="-30" frameY="0" frameWidth="240" frameHeight="386"/>
+	<SubTexture name="kapi0019" x="225" y="755" width="198" height="379" frameX="-34" frameY="0" frameWidth="240" frameHeight="386"/>
+	<SubTexture name="kapi0020" x="647" y="0" width="194" height="377" frameX="-38" frameY="0" frameWidth="240" frameHeight="386"/>
+	<SubTexture name="kapi0021" x="841" y="0" width="193" height="375" frameX="-39" frameY="0" frameWidth="240" frameHeight="386"/>
+	<SubTexture name="kapi0022" x="448" y="0" width="193" height="376" frameX="-39" frameY="0" frameWidth="240" frameHeight="386"/>
+	<SubTexture name="kapi0023" x="840" y="377" width="193" height="377" frameX="-39" frameY="0" frameWidth="240" frameHeight="386"/>
+</TextureAtlas>
